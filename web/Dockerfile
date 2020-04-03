@@ -20,7 +20,8 @@ RUN \
 	mv /usr/share/jitsi-meet /usr/share/jitsi-meet.org && \
 	git clone https://github.com/jitsi/jitsi-meet.git /usr/share/jitsi-meet && \
 	sed -i '/^export function isMobileBrowser.*/areturn false;' /usr/share/jitsi-meet/react/features/base/environment/utils.js && \
-	cd /usr/share/jitsi-meet && npm install && make && apt-cleanup
+	cd /usr/share/jitsi-meet && npm install && make && \
+	rm -rf /usr/share/jitsi-meet/node_modules && rm -rf /usr/share/jitsi-meet/ios && apt-cleanup
 
 EXPOSE 80 443
 
